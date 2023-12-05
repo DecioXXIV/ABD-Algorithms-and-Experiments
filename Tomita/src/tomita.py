@@ -2,18 +2,18 @@ class Tomita:
 
     def __init__(self, graph):
         self.graph = graph.graph
-        self.biconnected_components = dict()
+        self.maximal_cliques = dict()
         self.counter = 0
 
         self.tomita(r = set(), p = set(self.graph.keys()), x = set())
         print("\n*** FINE DELLA RICERCA ***")
         print("Sono state trovate le seguenti Clique Massimali:")
-        for key in self.biconnected_components:
-            print(self.biconnected_components[key])
+        for key in self.maximal_cliques:
+            print(self.maximal_cliques[key])
 
     def tomita(self, r, p, x):
         if len(p) == 0 and len(x) == 0:
-            self.biconnected_components[self.counter] = r
+            self.maximal_cliques[self.counter] = r
             self.counter += 1
             return
         
